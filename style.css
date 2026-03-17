@@ -1,4 +1,8 @@
-/* source-sans-3-regular - latin */
+@layer global, component, utility;
+
+@layer global{
+
+    /* source-sans-3-regular - latin */
 @font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
     font-family: 'Source Sans 3';
@@ -19,15 +23,21 @@
 :root {
     --fs-14: calc(14 / 16 * 1rem);
     --fs-16: calc(16 / 16 * 1rem);
+    --fs-24: calc(24 / 16 * 1rem);
+    --fs-36: calc(36 / 16 * 1rem);
     --fs-42: calc(42 / 16 * 1rem);
+    --fs-48: calc(48 / 16 * 1rem);
     --fs-72: calc(72 / 16 * 1rem);
 
     --font-size-topnav: var(--fs-14);
     --font-size-h1: var(--fs-42);
+    --font-size-h2: var(--fs-36);
+    --font-size-h3: var(--fs-24);
 
     @media (width >= calc(600 / 16 * 1rem)){
         --font-size-topnav: var(--fs-16);
         --font-size-h1: var(--fs-72);
+        --font-size-h2: var(--fs-48);
     }
 }
 
@@ -65,6 +75,27 @@
 
 body{
     font-family: "Source Sans 3", Arial, Helvetica, sans-serif;
+    line-height: 1.3;
+    color: var(--color-text-dark);
+}
+
+h1,
+h2,
+h3 {
+
+    line-height: 1.1;
+}
+
+h1{
+    font-size: var(--font-size-h1);
+}
+
+h2{
+    font-size: var(--font-size-h2);
+}
+
+h3{
+    font-size: var(--font-size-h3);
 }
 
 a {
@@ -82,3 +113,21 @@ svg {
     width: min(calc(100% - 48px),calc(1200 / 16 * 1rem));
     margin-inline: auto;
 }
+}
+
+@layer component {
+
+
+}
+
+@layer utility {
+    .visually-hidden {
+    position: absolute;
+    left:     -10000px;
+    top:      auto;
+    width:    1px;
+    height:   1px;
+    overflow: hidden;
+}
+}
+
